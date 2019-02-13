@@ -30,5 +30,9 @@ after_test:
 artifacts:
   - path: dist\*
 
-#on_success:
-#  - TODO: upload the content of dist/*.whl to a public wheelhouse
+on_success:
+  - "echo [pypi]                                        > %USERPROFILE%\\.pypirc"
+  - "echo repository=https://pypi.python.org/pypi       >> %USERPROFILE%\\.pypirc"
+  - "echo username: %PYPI_USERNAME%                     >> %USERPROFILE%\\.pypirc"
+  - "echo password: %PYPI_PASSWORD%                     >> %USERPROFILE%\\.pypirc"
+  - python setup.py sdist bdist_wheel upload
