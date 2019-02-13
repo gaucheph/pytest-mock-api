@@ -7,12 +7,12 @@ def test_bar_fixture(testdir):
     # create a temporary pytest test module
     testdir.makepyfile("""
         def test_sth(mock_api):
-            assert mock_api.port == 8080
+            assert mock_api.port == 5555
     """)
 
     # run pytest with the following cmd args
     result = testdir.runpytest(
-        '--port=8080',
+        '--port=5555',
         '-v'
     )
 
@@ -50,7 +50,7 @@ def test_port_ini_setting(testdir):
             return request.config.getini('mock_api_port')
 
         def test_hello_world(hello):
-            assert hello == 8080
+            assert hello == '8080'
     """)
 
     result = testdir.runpytest('-v')

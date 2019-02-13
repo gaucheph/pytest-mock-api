@@ -22,12 +22,16 @@ setup(
     url='https://github.com/gaucheph/pytest-mock-api',
     description='A mock API server with configurable routes and responses available as a fixture.',
     long_description=read('README.rst'),
-    py_modules=['pytest_mock_api'],
+    py_modules=[
+        'pytest_mock_api',
+        'mock_api'
+    ],
     python_requires='>=3.6',
     install_requires=[
         'pytest>=4.0.0',
         'requests>=2.20',
-        'flask>=1.0.0'
+        'flask>=1.0.0',
+        'Werkzeug>=0.14.1'
     ],
     classifiers=[
         'Development Status :: 1 - Planning',
