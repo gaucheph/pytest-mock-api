@@ -6,13 +6,13 @@ def test_bar_fixture(testdir):
 
     # create a temporary pytest test module
     testdir.makepyfile("""
-        def test_sth(bar):
-            assert bar == "europython2015"
+        def test_sth(mock_api):
+            assert mock_api.port == 8080
     """)
 
     # run pytest with the following cmd args
     result = testdir.runpytest(
-        '--foo=europython2015',
+        '--port=8080',
         '-v'
     )
 
@@ -32,14 +32,14 @@ def test_help_message(testdir):
     # fnmatch_lines does an assertion internally
     result.stdout.fnmatch_lines([
         'mock-api:',
-        '*--foo=DEST_FOO*Set the value for the fixture "bar".',
+        '*--port=DEST_PORT*Set the port for the server. default=5000',
     ])
 
 
-def test_hello_ini_setting(testdir):
+def test_port_ini_setting(testdir):
     testdir.makeini("""
         [pytest]
-        HELLO = world
+        mock_api_port = 8080
     """)
 
     testdir.makepyfile("""
@@ -47,10 +47,10 @@ def test_hello_ini_setting(testdir):
 
         @pytest.fixture
         def hello(request):
-            return request.config.getini('HELLO')
+            return request.config.getini('mock_api_port')
 
         def test_hello_world(hello):
-            assert hello == 'world'
+            assert hello == 8080
     """)
 
     result = testdir.runpytest('-v')
