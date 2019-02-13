@@ -24,7 +24,11 @@ setup(
     long_description=read('README.rst'),
     py_modules=['pytest_mock_api'],
     python_requires='>=3.6',
-    install_requires=['pytest>=4.0.0'],
+    install_requires=[
+        'pytest>=4.0.0',
+        'requests>=2.20',
+        'flask>=1.0.0'
+    ],
     classifiers=[
         'Development Status :: 1 - Plannning',
         'Framework :: Pytest',
