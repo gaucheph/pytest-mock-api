@@ -20,6 +20,8 @@ pytest-mock-api
 
 A mock API server with configurable routes and responses available as a fixture.
 
+Based on this `gist`_.
+
 ----
 
 This `pytest`_ plugin was generated with `Cookiecutter`_ along with `@hackebrot`_'s `cookiecutter-pytest-plugin`_ template.
@@ -66,6 +68,7 @@ Issues
 
 If you encounter any problems, please `file an issue`_ along with a detailed description.
 
+.. _`gist`: https://gist.github.com/eruvanos/f6f62edb368a20aaa880e12976620db8
 .. _`Cookiecutter`: https://github.com/audreyr/cookiecutter
 .. _`@hackebrot`: https://github.com/hackebrot
 .. _`MIT`: http://opensource.org/licenses/MIT
