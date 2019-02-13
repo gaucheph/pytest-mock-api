@@ -30,7 +30,7 @@ setup(
         'flask>=1.0.0'
     ],
     classifiers=[
-        'Development Status :: 1 - Plannning',
+        'Development Status :: 1 - Planning',
         'Framework :: Pytest',
         'Intended Audience :: Developers',
         'Topic :: Software Development :: Testing',
