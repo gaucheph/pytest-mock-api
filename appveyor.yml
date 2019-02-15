@@ -4,10 +4,10 @@
 environment:
   matrix:
     - PYTHON: "C:\\Python36"
-      TOX_ENV: "py36"
+      TOX_ENV: "python3.6"
 
     - PYTHON: "C:\\Python37"
-      TOX_ENV: "py37"
+      TOX_ENV: "python3.7"
 
 init:
   - "%PYTHON%/python -V"
@@ -30,9 +30,9 @@ after_test:
 artifacts:
   - path: dist\*
 
-on_success:
-  - "echo [pypi]                                        > %USERPROFILE%\\.pypirc"
-  - "echo repository=https://pypi.python.org/pypi       >> %USERPROFILE%\\.pypirc"
-  - "echo username: %PYPI_USERNAME%                     >> %USERPROFILE%\\.pypirc"
-  - "echo password: %PYPI_PASSWORD%                     >> %USERPROFILE%\\.pypirc"
-  - python setup.py sdist bdist_wheel upload
+#on_success:
+#  - "echo [pypi]                                        > %USERPROFILE%\\.pypirc"
+#  - "echo repository=https://pypi.python.org/pypi       >> %USERPROFILE%\\.pypirc"
+#  - "echo username: %PYPI_USERNAME%                     >> %USERPROFILE%\\.pypirc"
+#  - "echo password: %PYPI_PASSWORD%                     >> %USERPROFILE%\\.pypirc"
+#  - python setup.py sdist bdist_wheel upload
