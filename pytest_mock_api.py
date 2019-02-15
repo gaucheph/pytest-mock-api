@@ -17,7 +17,7 @@ def pytest_addoption(parser):
     parser.addini('mock_api_port', 'Set the port for the server. default=5000')
 
 
-@pytest.fixture(scope="function", autouse=True)
+@pytest.fixture(scope="function")
 def mock_api(request):
     target_port = request.config.option.dest_port
     this_mock_api = MockApi(port=int(target_port))
